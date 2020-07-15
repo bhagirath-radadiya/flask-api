@@ -30,12 +30,12 @@ def home():
 <p>A prototype API for distant reading of science fiction novels.</p>'''
 
 
-@app.route('/api', methods=['GET'])
+@app.route('/api_all', methods=['GET'])
 def api_all():
     return jsonify(books)
 
 
-@app.route('/api', methods=['GET'])
+@app.route('/api_id', methods=['GET'])
 def api_id():
     # Check if an ID was provided as part of the URL.
     # If ID is provided, assign it to a variable.
@@ -59,26 +59,5 @@ def api_id():
     return jsonify(results)
 
 
-app.run()
+app.run(port=8081)
 
-# write URL in browser you get specific output
-
-# http://127.0.0.1:5000/api?id=2
-
-# [
-#   {
-#     "author": "Samuel R. Delany",
-#     "first_sentence": "to wound the autumnal city.",
-#     "id": 2,
-#     "published": "1975",
-#     "title": "Dhalgren"
-#   }
-# ]
-
-# http://127.0.0.1:5000/api?id=5
-
-# []
-
-# http://127.0.0.1:5000/api
-
-# Error: No id field provided. Please specify an id.
